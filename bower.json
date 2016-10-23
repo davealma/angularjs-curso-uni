@@ -1,0 +1,15 @@
+{
+  "name": "angular-uni",
+  "version": "0.0.0",
+  "authors": [
+    "David Almanza <davidalmanza88@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
