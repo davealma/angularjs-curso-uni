@@ -3,11 +3,11 @@
     <label>{{editCont.userId}}</label>
     <br>
     <label for="">Name</label>
-    <input type="text" />
+    <input type="text" ng-model="editCont.user.name" />
     <br>
     <label for="">Edad</label>
-    <input type="number" />
+    <input type="number" ng-model="editCont.user.age" />
     <br>
-    <button>Guardar</button>
+    <button ng-click="editCont.update()">Guardar</button>
     <a href="#/" class="btn">Cancelar</a>
 </form>

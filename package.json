@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-static": "^0.7.9"
+    "connect": "^3.5.0",
+    "node-static": "^0.7.9",
+    "serve-static": "^1.11.1"
   }
 }

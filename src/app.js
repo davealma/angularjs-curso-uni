@@ -1,3 +1,8 @@
+var users = [
+              {id:1, name: 'David', age: 28},
+              {id:2, name: 'Jose', age: 30}
+            ];
+
 angular.module('myApp', ['ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
@@ -13,13 +18,10 @@ angular.module('myApp', ['ngRoute'])
         redirectTo: '/'
       })
   })
-  .controller('MyController', function () {
+  .controller('MyController', function ($filter) {
     var vm = this;
 
-    vm.users = [
-      {id:1, name: 'David', age: 28},
-      {id:2, name: 'Jose', age: 30}
-    ];
+    vm.users = users;
 
     vm.sendForm = function () {
       var id = vm.users.length + 1;
@@ -38,8 +40,19 @@ angular.module('myApp', ['ngRoute'])
     };
     setInterval(updateClock, 1000);
   })
-  .controller('EditController', function ($routeParams) {
+  .controller('EditController', function ($routeParams, $location) {
     var vm = this;
-    vm.userId = $routeParams.id;
-    console.log('id of', vm.userId);
+    vm.user = users.filter(function(user) {
+      return user.id == $routeParams.id;
+    })[0];
+    vm.update = function () {
+      console.log('daa', vm.user);
+      users.map(function (user) {
+        if (user.id == vm.user.id) {
+          return vm.user;
+        }
+        return user;
+      });
+      $location.path('/');
+    };
   });
