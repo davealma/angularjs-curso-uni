@@ -12,6 +12,13 @@
   "dependencies": {
     "connect": "^3.5.0",
     "node-static": "^0.7.9",
-    "serve-static": "^1.11.1"
+    "serve-static": "^1.11.1",
+    "wiredep": "^4.0.0"
+  },
+  "devDependencies": {
+    "event-stream": "^3.3.4",
+    "gulp": "^3.9.1",
+    "gulp-inject": "^4.1.0",
+    "main-bower-files": "^2.13.1"
   }
 }

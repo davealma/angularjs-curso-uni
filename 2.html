@@ -1,12 +1,12 @@
 <div>
     <p>Usted tiene {{todoList.users.length}} usuario(s)</p>
+    <button ng-click="todoList.esconder()">Esconder</button>
     <p>{{todoList.clock}}</p>
     <ul ng-repeat="user in todoList.users">
         <li><a href="#/edit/{{user.id}}">Id: {{user.id}} </a> -- {{user.name | uppercase}} con edad {{user.age}}</li>
         <button ng-click="todoList.remove(user.id)">x</button>
-
     </ul>
-    <form ng-submit="todoList.sendForm()">
+    <form ng-show="todoList.showMenu" ng-submit="todoList.sendForm()">
         <input type="text" ng-model="todoList.userName" placeholder="agrega un nombre usuario" />
         <input type="text" ng-model="todoList.userAge" placeholder="agrega la edad del usuario" />
         <input type="submit" value="Enviar" />

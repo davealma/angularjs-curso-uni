@@ -18,10 +18,19 @@ angular.module('myApp', ['ngRoute'])
         redirectTo: '/'
       })
   })
-  .controller('MyController', function ($filter) {
+  .controller('MyController', function ($filter, $http) {
     var vm = this;
-
+    // vm.showMenu = false;
     vm.users = users;
+
+    $http({
+       method : "GET",
+       url : "https://api.github.com/users/davealma"
+   }).then(function mySucces(response) {
+       console.log(response);
+   }, function myError(error) {
+       console.log(error);
+   });
 
     vm.sendForm = function () {
       var id = vm.users.length + 1;
@@ -35,10 +44,9 @@ angular.module('myApp', ['ngRoute'])
         return user.id != userId;
       });
     }
-    var updateClock = function() {
-      vm.clock = new Date();
+    vm.esconder = function () {
+        vm.showMenu = !vm.showMenu;
     };
-    setInterval(updateClock, 1000);
   })
   .controller('EditController', function ($routeParams, $location) {
     var vm = this;
