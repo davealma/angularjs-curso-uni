@@ -23,15 +23,6 @@ angular.module('myApp', ['ngRoute'])
     // vm.showMenu = false;
     vm.users = users;
 
-    $http({
-       method : "GET",
-       url : "https://api.github.com/users/davealma"
-   }).then(function mySucces(response) {
-       console.log(response);
-   }, function myError(error) {
-       console.log(error);
-   });
-
     vm.sendForm = function () {
       var id = vm.users.length + 1;
       vm.users.push({id: id, name: vm.userName, age: vm.userAge});
@@ -46,21 +37,5 @@ angular.module('myApp', ['ngRoute'])
     }
     vm.esconder = function () {
         vm.showMenu = !vm.showMenu;
-    };
-  })
-  .controller('EditController', function ($routeParams, $location) {
-    var vm = this;
-    vm.user = users.filter(function(user) {
-      return user.id == $routeParams.id;
-    })[0];
-    vm.update = function () {
-      console.log('daa', vm.user);
-      users.map(function (user) {
-        if (user.id == vm.user.id) {
-          return vm.user;
-        }
-        return user;
-      });
-      $location.path('/');
     };
   });
