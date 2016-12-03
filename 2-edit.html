@@ -1,13 +1,16 @@
-<form name="myForm">
-    <label for="">Id</label>
-    <label>{{editCont.userId}}</label>
-    <br>
-    <label for="">Name</label>
-    <input type="text" ng-model="editCont.user.name" />
-    <br>
-    <label for="">Edad</label>
-    <input type="number" ng-model="editCont.user.age" />
-    <br>
-    <button ng-click="editCont.update()">Guardar</button>
-    <a href="#/" class="btn">Cancelar</a>
-</form>
+<div class="col-md-8 col-md-offset-2">
+    <form name="myForm">
+        <label for="">Id</label>
+        <label>{{ec.userId}}</label>
+        <br>
+        <label for="">Name</label>
+        <input class="form-control" type="text" ng-model="ec.user.name" />
+        <br>
+        <label for="">Edad</label>
+        <input class="form-control" type="number" ng-model="ec.user.age" />
+        <br>
+        <button class="btn btn-primary" ng-click="ec.update()">Guardar</button>
+        <a href="#/" class="btn">Cancelar</a>
+    </form>
+    <my-stop-watch></my-stop-watch>
+</div>

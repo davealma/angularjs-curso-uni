@@ -1,14 +1,14 @@
 <div>
-    <p>Usted tiene {{todoList.users.length}} usuario(s)</p>
-    <p>{{todoList.clock}}</p>
-    <ul ng-repeat="user in todoList.users">
+    <p>Usted tiene {{mc.users.length}} usuario(s)</p>
+    <ul ng-repeat="user in mc.users">
         <li><a href="#/edit/{{user.id}}">Id: {{user.id}} </a> -- {{user.name | uppercase}} con edad {{user.age}}</li>
-        <button ng-click="todoList.remove(user.id)">x</button>
-
+        <button ng-click="mc.remove(user.id)">x</button>
     </ul>
-    <form ng-submit="todoList.sendForm()">
-        <input type="text" ng-model="todoList.userName" placeholder="agrega un nombre usuario" />
-        <input type="text" ng-model="todoList.userAge" placeholder="agrega la edad del usuario" />
+    <form ng-submit="mc.sendForm()">
+        <input type="text" ng-model="mc.userName" placeholder="agrega un nombre usuario" />
+        <input type="text" ng-model="mc.userAge" placeholder="agrega la edad del usuario" />
         <input type="submit" value="Enviar" />
     </form>
+    <my-stop-watch></my-stop-watch>
+
 </div>
