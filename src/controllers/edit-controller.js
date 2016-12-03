@@ -8,6 +8,7 @@ var users = [
     function EditController($routeParams, $location) {
         console.log('Edit controller loaded');
         var vm = this;
+        vm.userId  = $routeParams.id;
         vm.user = users.filter(function(user) {
           return user.id == $routeParams.id;
         })[0];

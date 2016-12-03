@@ -11,4 +11,11 @@
         <input type="text" ng-model="todoList.userAge" placeholder="agrega la edad del usuario" />
         <input type="submit" value="Enviar" />
     </form>
+
+    <div ng-stop-watch>
+        {{elapsedTime}}
+      <button ng-click="startTimer()">Start</button>
+      <button ng-click="stopTimer()">Stop</button>
+      <button ng-click="resetTimer()">Reset</button>
+    </div>
 </div>
