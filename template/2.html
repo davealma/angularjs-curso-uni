@@ -1,0 +1,12 @@
+<div>
+    Valor:
+    <input type='number' ng-model='vm.number' /> Disponible:
+    <input type="checkbox" ng-model="vm.my_check" ng-change="vm.checkHandler()" />
+    <h2>Precio: {{vm.number | currency}}</h2>
+    <ul>
+        <li ng-repeat="user in vm.users">
+            <a href="#/edit/{{user.id}}">Id: {{user.id}}</a> -- {{user.name | uppercase}} {{user.age}}
+            <button ng-click="vm.remover(user)">X</button>
+        </li>
+    </ul>
+</div>
