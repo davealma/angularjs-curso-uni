@@ -2,8 +2,11 @@ var users = [
               {id:1, name: 'David', age: 28},
               {id:2, name: 'Jose', age: 30}
             ];
-
-angular.module('myApp', ['ngRoute'])
+var env = {};
+if (window) {
+    Object.assign(env, window.__env);
+}
+angular.module('myApp', ['ngRoute', 'toastr'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -14,7 +17,12 @@ angular.module('myApp', ['ngRoute'])
         controller: 'EditController as ec',
         templateUrl: '2-edit.html'
       })
+      .when('/user/:id', {
+          controller: 'GitHubController as gc',
+          templateUrl: 'github.html'
+      })
       .otherwise({
         redirectTo: '/'
       })
-  });
+  })
+  .constant('__env', env);

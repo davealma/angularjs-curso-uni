@@ -4,8 +4,9 @@ var users = [
             ];
 (function () {
     'use strict';
-    function EditController($routeParams, $location) {
+    function EditController($routeParams, $location, SimpleService) {
         var vm = this;
+        vm.years = SimpleService.buildYears();
         vm.userId = $routeParams.id;
         vm.user = users.filter(function(user) {
           return user.id == $routeParams.id;
@@ -26,5 +27,6 @@ var users = [
         .module('myApp')
         .controller('EditController', EditController);
 
-        EditController.$inject = ['$routeParams', '$location'];
+        EditController.$inject = ['$routeParams', '$location',
+                                  'SimpleService'];
 })();

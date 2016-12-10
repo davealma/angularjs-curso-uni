@@ -4,10 +4,10 @@ var users = [
             ];
 (function () {
     'use strict';
-    function MyController() {
+    function MyController(SimpleService) {
       var vm = this; //tener a la func desde una variable
       vm.users = users;
-        
+      vm.years = SimpleService.buildYears();    
       vm.sendForm = function () {
         var id = vm.users.length + 1;
         vm.users.push({id: id, name: vm.userName, age: vm.userAge});
@@ -24,4 +24,6 @@ var users = [
     angular
         .module('myApp')
         .controller('MyController', MyController);
+
+    MyController.$inject = ['SimpleService'];
 })();

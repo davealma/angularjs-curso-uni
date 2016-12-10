@@ -9,6 +9,10 @@
         <label for="">Edad</label>
         <input class="form-control" type="number" ng-model="ec.user.age" />
         <br>
+        <label for="">Años</label>
+        <select class="form-control" ng-model="ec.year" ng-options="y for y in ec.years">
+
+        </select>
         <button class="btn btn-primary" ng-click="ec.update()">Guardar</button>
         <a href="#/" class="btn">Cancelar</a>
     </form>

@@ -1,0 +1,25 @@
+<div class="col-md-6 col-md-offset-4">
+    <h1>GitHub</h1>
+    <div class="row">
+        <img ng-src="{{gc.user.avatar_url}}" width="50" height="50" />
+    </div>
+
+    <div class="row">
+        <label for="">name: {{gc.user.name}}</label>
+    </div>
+
+    <div class="row">
+        <a ng-href="{{gc.user.html_url}}">{{gc.user.html_url}}</a>
+    </div>
+
+    <div class="row">
+        <ul>
+            <li ng-repeat="repo in gc.repos.repos">
+                <a ng-href="{{repo.html_url}}">{{repo.full_name}}</a>
+            </li>
+        </ul>
+    </div>
+
+    <button class="btn" ng-click="gc.showRepos(gc.user.repos_url)">Show Repos ({{gc.repos.total}})</button>
+
+</div>
